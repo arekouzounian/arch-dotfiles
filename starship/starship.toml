@@ -1,0 +1,43 @@
+format = """
+┌─$time $username@$hostname $git_branch $git_status $battery
+├┤$directory│ $git_metrics ($cmd_duration)
+└\\$> """
+
+
+[time]
+disabled = false
+format = '[$time]($style)'
+style = 'underline bold yellow'
+
+[username]
+show_always = true
+style_user = 'bold'
+aliases = {"arekouzounian" = "arek"}
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false 
+format = '[$ssh_symbol$hostname]($style)'
+style = 'bold italic cyan'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = 'bold blue'
+truncation_symbol = '🐙 '
+
+[cmd_duration]
+format = 'took [$duration]($style)'
+style = 'underline bold green'
+
+[git_metrics]
+disabled = false
+
+[gcloud]
+disabled = true
+
+[[battery.display]]
+threshold = 100
+style = 'bold green'
+
+
+
